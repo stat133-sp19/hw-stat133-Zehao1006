@@ -4,7 +4,7 @@ Private Repository for HW assignments of Stat 133 (Spring 2019)
 
 - Name: Zehao Wang
 - Github username: Zehao1006
-- Email: 694545425[at] qq.com
+- Email: [694545425@qq.com](694545425@qq.com)
 - Lab section: 101
 - GSI: Colin Kou
 
