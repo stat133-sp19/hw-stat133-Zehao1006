@@ -2,11 +2,11 @@
 
 Private Repository for HW assignments of Stat 133 (Spring 2019)
 
-- Name: Your name (first last)
-- Github username: usrname
-- Email: address [at] email.com
+- Name: Zehao Wang
+- Github username: Zehao1006
+- Email: 694545425[at] qq.com
 - Lab section: 101
-- GSI: Leia Organa
+- GSI: Colin Kou
 
 -----
 
