@@ -2,149 +2,74 @@ workout01-Zehao-Wang
 ================
 Zehao Wang
 
-``` r
-#load the data
-shots_data <- read.csv("../data/shots-data.csv", stringsAsFactors = FALSE)
-
-#load the package
-library('dplyr')
-```
-
-    ## Warning: package 'dplyr' was built under R version 3.5.2
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
-#creating  overall effective shooting percentage table
-name <- c('Andre Iguodala','Draymond Green','Kevin Durant','Klay Thompson','Stephen Curry')
-total_1 <- c(sum(shots_data$name =='Andre Iguodala'),
-             sum(shots_data$name =='Draymond Green'),
-             sum(shots_data$name =='Kevin Durant'),
-             sum(shots_data$name =='Klay Thompson'),
-             sum(shots_data$name =='Stephen Curry'))
-made_1 <- c(sum(shots_data$name == 'Andre Iguodala' & shots_data$shot_made_flag == 'shot_yes'),
-          sum(shots_data$name == 'Draymond Green' & shots_data$shot_made_flag == 'shot_yes'),
-          sum(shots_data$name == 'Kevin Durant' & shots_data$shot_made_flag == 'shot_yes'),
-          sum(shots_data$name == 'Klay Thompson' & shots_data$shot_made_flag == 'shot_yes'),
-          sum(shots_data$name == 'Stephen Curry' & shots_data$shot_made_flag == 'shot_yes'))
-perc_made_1 <- round(made_1/total_1*100,2)
-
-overall_effective_shooting_percentage <- data.frame( name,total_1,made_1,perc_made_1)
-names(overall_effective_shooting_percentage) <- c('name', 'total','made','perc_made')
-overall_effective_shooting_percentage <- arrange(overall_effective_shooting_percentage, desc(perc_made))
-overall_effective_shooting_percentage$perc_made <- paste(as.character(overall_effective_shooting_percentage$perc_made),'%',sep='')
-
-#create 2PT field goal effective shooting percentage table
-total_2 <- c(sum(shots_data$name =='Andre Iguodala'&shots_data$shot_type == '2PT Field Goal'),
-             sum(shots_data$name =='Draymond Green'&shots_data$shot_type == '2PT Field Goal'),
-             sum(shots_data$name =='Kevin Durant'&shots_data$shot_type == '2PT Field Goal'),
-             sum(shots_data$name =='Klay Thompson' & shots_data$shot_type == '2PT Field Goal'),
-             sum(shots_data$name =='Stephen Curry' & shots_data$shot_type == '2PT Field Goal'))
-
-made_2 <- c(sum(shots_data$name == 'Andre Iguodala' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '2PT Field Goal'),
-          sum(shots_data$name == 'Draymond Green' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '2PT Field Goal'),
-          sum(shots_data$name == 'Kevin Durant' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '2PT Field Goal'),
-          sum(shots_data$name == 'Klay Thompson' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '2PT Field Goal'),
-          sum(shots_data$name == 'Stephen Curry' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '2PT Field Goal'))
-perc_made_2 <- round(made_2/total_2*100,2)
-PT2_effective_shooting_percentage <- data.frame( name,total_2,made_2,perc_made_2)
-names(PT2_effective_shooting_percentage) <- c('name', 'total','made','perc_made')
-PT2_effective_shooting_percentage <- arrange(PT2_effective_shooting_percentage, desc(perc_made))
-PT2_effective_shooting_percentage$perc_made <- paste(as.character(PT2_effective_shooting_percentage$perc_made),'%',sep='')
-
-#create 3PT field goal effective shooting percentage table
-total_3 <- c(sum(shots_data$name =='Andre Iguodala'&shots_data$shot_type == '3PT Field Goal'),
-             sum(shots_data$name =='Draymond Green'&shots_data$shot_type == '3PT Field Goal'),
-             sum(shots_data$name =='Kevin Durant'&shots_data$shot_type == '3PT Field Goal'),
-             sum(shots_data$name =='Klay Thompson' & shots_data$shot_type == '3PT Field Goal'),
-             sum(shots_data$name =='Stephen Curry' & shots_data$shot_type == '3PT Field Goal'))
-
-made_3 <- c(sum(shots_data$name == 'Andre Iguodala' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '3PT Field Goal'),
-          sum(shots_data$name == 'Draymond Green' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '3PT Field Goal'),
-          sum(shots_data$name == 'Kevin Durant' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '3PT Field Goal'),
-          sum(shots_data$name == 'Klay Thompson' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '3PT Field Goal'),
-          sum(shots_data$name == 'Stephen Curry' & shots_data$shot_made_flag == 'shot_yes'&shots_data$shot_type == '3PT Field Goal'))
-perc_made_3 <- round(made_3/total_3*100,2)
-PT3_effective_shooting_percentage <- data.frame( name,total_3,made_3,perc_made_3)
-names(PT3_effective_shooting_percentage) <- c('name', 'total','made','perc_made')
-PT3_effective_shooting_percentage <- arrange(PT3_effective_shooting_percentage, desc(perc_made))
-PT3_effective_shooting_percentage$perc_made <- paste(as.character(PT3_effective_shooting_percentage$perc_made),'%',sep='')
-```
-
-------------------------------------------------------------------------
-
 Who is the real 'killer' of the Warriors?
------------------------------------------
+=========================================
 
-<img src="../../../gsw.jpg" width="80%" style="display: block; margin: auto;" />
+<img src="../images/gsw.jpg" width="80%" style="display: block; margin: auto;" />
 
-The Golden State Warriors has a group of gifted offensive players: Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson and Stephen Curry. They won NBA champions for Warriors and made it perhaps the greatest team of all time. Among them, who do you think is the real 'killer' of the Warriors? What is your answer? Curry? Clay? or Durant? Today, let's see through the following shooting stat to analyse who is the real 'killer' of the Warriors?
+The Golden State Warriors has a group of gifted offensive players: Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson and Stephen Curry. They won NBA champions for Warriors and made it perhaps the greatest team of all time. Among them, who do you think is the real 'killer' of the Warriors? Who will be the NO.1 killer in your opinion? Curry? Clay? or Durant? No hurry to say out your answer. Let's see some stat first.
 
 <img src="../images/gsw-shot-charts.png" width="80%" style="display: block; margin: auto;" />
 
-### Overall Effective Shooting Percentage
+This is shot chart of the five players, which clearly shows where the players shot and whether the shot was made or not. In following are the effective shooting accuracy tables in the order of overall(including 2PT and 3PT), 2PT and 3PT. \#\#\#\#\#Overall Effective Shooting Percentage
 
-    ##             name total made perc_made
-    ## 1   Kevin Durant   915  495     54.1%
-    ## 2 Andre Iguodala   371  192    51.75%
-    ## 3  Klay Thompson  1220  575    47.13%
-    ## 4  Stephen Curry  1250  584    46.72%
-    ## 5 Draymond Green   578  245    42.39%
+| name           |  total|  made| perc\_made |
+|:---------------|------:|-----:|:-----------|
+| Kevin Durant   |    915|   495| 54.1%      |
+| Andre Iguodala |    371|   192| 51.75%     |
+| Klay Thompson  |   1220|   575| 47.13%     |
+| Stephen Curry  |   1250|   584| 46.72%     |
+| Draymond Green |    578|   245| 42.39%     |
 
-### 2PT Effective Shooting Percentage
+##### 2PT Effective Shooting Percentage
 
-    ##             name total made perc_made
-    ## 1 Andre Iguodala   210  134    63.81%
-    ## 2   Kevin Durant   643  390    60.65%
-    ## 3  Stephen Curry   563  304       54%
-    ## 4  Klay Thompson   640  329    51.41%
-    ## 5 Draymond Green   346  171    49.42%
+| name           |  total|  made| perc\_made |
+|:---------------|------:|-----:|:-----------|
+| Andre Iguodala |    210|   134| 63.81%     |
+| Kevin Durant   |    643|   390| 60.65%     |
+| Stephen Curry  |    563|   304| 54%        |
+| Klay Thompson  |    640|   329| 51.41%     |
+| Draymond Green |    346|   171| 49.42%     |
 
-### 3PT Effective Shooting Percentage
+##### 3PT Effective Shooting Percentage
 
-    ##             name total made perc_made
-    ## 1  Klay Thompson   580  246    42.41%
-    ## 2  Stephen Curry   687  280    40.76%
-    ## 3   Kevin Durant   272  105     38.6%
-    ## 4 Andre Iguodala   161   58    36.02%
-    ## 5 Draymond Green   232   74     31.9%
+| name           |  total|  made| perc\_made |
+|:---------------|------:|-----:|:-----------|
+| Klay Thompson  |    580|   246| 42.41%     |
+| Stephen Curry  |    687|   280| 40.76%     |
+| Kevin Durant   |    272|   105| 38.6%      |
+| Andre Iguodala |    161|    58| 36.02%     |
+| Draymond Green |    232|    74| 31.9%      |
 
-### NO.5 Andre Iguodala
+Does the graph and tables above change your mind? Today, let's see through these stat to analyse who is the real 'killer' of the Warriors and give a rank of these five players. Let data tell us the answer.
 
-<img src="../../../iguodala.jpg" width="80%" style="display: block; margin: auto;" />
+#### NO.5 Andre Iguodala
+
+<img src="../images/iguodala.jpg" width="80%" style="display: block; margin: auto;" />
 
 Many fans get surprised by this result since Iguodala’ s 2PT shooting accuracy is surprising 63.81% and ranks at the top. His overall effective shooting accuracy reaches to 51.75% and ranks at the second. But due to the problem of his age, his playing time is limited, so the total amount of shots he made during the season is the least of the five players. His 3 pointer shooting accuracy, 36.02%, is not good, either. What’s more, we can see clearly from the shot chart, Iguodala has some hot shooting area, which includes the key area and the fourty-five degree and bottom angle on both sides. In other words, he also has some cold shooting area, indicating that he may not make shots from these places as well as other areas. Thus, we think Andre Iguodala rank fifth among them.
 
 ### NO.4 Draymond Green
 
-<img src="../../../green.jpg" width="80%" style="display: block; margin: auto;" />
+<img src="../images/green.jpg" width="80%" style="display: block; margin: auto;" />
 
 Seeing from the table, we can get a conclusion that Green is relatively bad at shooting among these five players. He ranks at the last in terms of no matter overall, 2PT or 3PT effective shooting accuracy. His three pointers shooting accuracy is poorly 31.9%. Like Andre Iguodala, he has some cold shooting area，such as the both sides of the court. But what we should notice is that, although the ranks of his overall and 2PT shooting accuracy are not high, they are approximate 40% and 50%, which is not bad. And it is understandable for a inside player to have a low 3PT shooting accuracy. What’s more, Draymond Green is not famous for his shooting skills, instead he is very good at defending and organizing the offence of the team. He made a lot of contribution to the team besides just scoring. Of course, it would be much better if he could improve his shootings skills, which will make him and the team more competitive. Taking all of this into consideration, Draymond Green is regarded to rank fourth among them.
 
-### No.3 Clay Thompson
+### NO.3 Clay Thompson
 
-<img src="../../../thompson.jpg" width="80%" style="display: block; margin: auto;" />
+<img src="../images/thompson.jpg" width="80%" style="display: block; margin: auto;" />
 
 I believe most of the fans has guessed out this result. As a great shooter of all time, he didn’t make fans disappointed. His 2PT and 3PT shooting accuracy are well above 50% and 40%, which is considered to be the symbol of a top shooters. As a result , his overall effective shooting accuracy is almost 48%, ranking at the third place. What’s more, the total shots and the total 3 pointers he made is only second to Stephen Curry. Unlike Andre Iguodala and Draymond Green, he has no so called cold shooting area. He can make shots from every place of the court, and he is good at all kinds of skills of shooting, such as catch and shoot, turn around jumper and attack the rim directly. This is what make him rank third and why many fans love him.
 
-### No.2 Stephen Curry
+### NO.2 Stephen Curry
 
-<img src="../../../curry.jpg" width="80%" style="display: block; margin: auto;" />
+<img src="../images/curry.jpg" width="80%" style="display: block; margin: auto;" />
 
 Another great shooter, perhaps the best shooter of all time, Curry had amazing performance this season. He made 280 3 pointers, which is the most among the whole NBA league. To people’s surprise, he can keep the 3PT shooting accuracy above 40% while making so many 3 pointers. What’s more he is good at 2PT, too. He made 304 2PT with an accuracy of 54%. Also, seen from the shot chart, he can shoot from every place of the court, even from the logo! Do you still remember the game winning ball he made from the place near the half court line when Warriors is against Thunder? Besides, most of the shots he made are stop jump shots after quick handling, which implies great difficulty. Based on the discussion above, we think Curry should rank at the second place.
 
-### No.1 Kevin Durant
+### NO.1 Kevin Durant
 
-<img src="../../../durant.jpg" width="80%" style="display: block; margin: auto;" />
+<img src="../images/durant.jpg" width="80%" style="display: block; margin: auto;" />
 
 Now let’s announce the No.1 player. Of course, he is Kevin Durant. Some basketball fans may get surprised by this result before reading this article, since when talking about good shooters of Warriors, the first two that come into people's mind are usually Curry and Thompson. Seen from the table, Durant has a very good shooting accuracy. Durant's overall effective shooting accuracy is above 54%, ranking top. And he ranks second in the 2PT shooting accuracy and third in the 3PT shooting accuracy. What’s more, he made almost 500 shots with only 915 tries, which will is much less than that of Curry and Thompson. Most of his offence can be converted to score. Besides, from the shot chart, we can see that Durant can make shots from nearly anywhere of the court. He is good at all kinds of offensive skills as well, such as dunking, stop jumper, turn around jumper and so on. He is a very efficient and comprehensive attacker and this is why he ranks No.1.
 
@@ -155,6 +80,8 @@ So far we rand these five players based on the analysis about the shooting accur
 Data: <https://github.com/ucb-stat133/stat133-hws/tree/master/data>
 
 Picture:
+
+Background picture of shot chart:<https://github.com/ucb-stat133/stat133-hws/tree/master/images>
 
 Kevin Durant: <https://www.google.com/search?q=kevin+durant&hl=zh-CN&authuser=0&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwjHkqj9wYDhAhWMwcQBHTZbCzwQ_AUIDigB&biw=766&bih=712#imgrc=vHl_HtVg8GznaM:>
 
