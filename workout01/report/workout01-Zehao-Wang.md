@@ -11,7 +11,9 @@ The Golden State Warriors has a group of gifted offensive players: Andre Iguodal
 
 <img src="../images/gsw-shot-charts.png" width="80%" style="display: block; margin: auto;" />
 
-This is shot chart of the five players, which clearly shows where the players shot and whether the shot was made or not. In following are the effective shooting accuracy tables in the order of overall(including 2PT and 3PT), 2PT and 3PT. \#\#\#\#\#Overall Effective Shooting Percentage
+This is shot chart of the five players, which clearly shows where the players shot and whether the shot was made or not. In following are the effective shooting accuracy tables in the order of overall(including 2PT and 3PT), 2PT and 3PT.
+
+##### Overall Effective Shooting Percentage
 
 | name           |  total|  made| perc\_made |
 |:---------------|------:|-----:|:-----------|

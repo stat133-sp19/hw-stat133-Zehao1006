@@ -81,6 +81,7 @@ knitr::include_graphics('../images/gsw-shot-charts.png')
 ```
 
 This is shot chart of the five players, which clearly shows where the players shot and whether the shot was made or not. In following are the effective shooting accuracy tables in the order of overall(including 2PT and 3PT), 2PT and 3PT.
+
 #####Overall Effective Shooting Percentage
 ```{r echo=FALSE,comment=''}
 knitr::kable(overall_effective_shooting_percentage)
