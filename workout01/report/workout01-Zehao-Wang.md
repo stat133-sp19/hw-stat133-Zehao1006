@@ -43,7 +43,7 @@ This is shot chart of the five players, which clearly shows where the players sh
 | Andre Iguodala |    161|    58| 36.02%     |
 | Draymond Green |    232|    74| 31.9%      |
 
-Does the graph and tables above change your mind? Today, let's see through these stat to analyse who is the real 'killer' of the Warriors and give a rank of these five players. Let data tell us the answer.
+Do the graph and tables above change your mind? Today, let's see through these stat to analyse who is the real 'killer' of the Warriors and give a rank of these five players. Let data tell us the answer.
 
 #### NO.5 Andre Iguodala
 
