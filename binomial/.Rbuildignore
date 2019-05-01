@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^devtools-binomial.R
+^README.md
+^README\.Rmd$
+^doc$
+^Meta$

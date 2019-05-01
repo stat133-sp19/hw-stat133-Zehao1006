@@ -1,0 +1,12 @@
+Package: binomial
+Type: Package
+Title: Binomial Distribution Functions
+Version: 0.1.0
+Author: Zehao Wang
+Maintainer: Zehao Wang<wzhqd@foxmail.com>
+Description: Provides functions to do calculations related to binomial distribution.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+

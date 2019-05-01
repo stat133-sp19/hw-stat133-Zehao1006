@@ -1,0 +1,37 @@
+"0","library('binomial')"
+"0","# to calculate the probability of a binomial random variable"
+"0","bin_probability(success = 2, trials = 5, prob = 0.5)"
+"1","[1]"
+"1"," 0.3125"
+"1","
+"
+"0","# to get the parameters of the binomial distribution and get the summary measures"
+"0","bin_v <- bin_variable(trials = 10 ,prob = 0.3)"
+"0","summary(bin_v)"
+"1","""Summary Biomial""
+"
+"1","
+"
+"1","Parameters
+"
+"1","- number of trials: 10
+"
+"1","- prob of success : 0.3
+"
+"1","
+"
+"1","Measures
+"
+"1","- mean    : 3
+"
+"1","- variance: 2.1
+"
+"1","- mode    : 3
+"
+"1","- skewness: 0.276026223736942
+"
+"1","- kurtosis: -0.123809523809524
+"
+"0","# to calculate the probability distribution and visualize it"
+"0","bin_d <- bin_distribution(trials = 5 ,prob = 0.5)"
+"0","bin_d"
